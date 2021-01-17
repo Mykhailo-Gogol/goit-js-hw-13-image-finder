@@ -1,5 +1,6 @@
 import fetchImages from "./fetch-images";
 import fetchHandler from "./fetch-handler";
+import references from "./references";
 
 function onInputSearch(event) {
   const query = event.target.value;
@@ -7,8 +8,12 @@ function onInputSearch(event) {
 
   const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${query}&page=${1}&per_page=12&key=${key}`;
 
+  references.list.textContent = "";
   if (query) {
     fetchImages(url).then(fetchHandler);
+  } else {
+    references.list.textContent = "";
+    references.loadMoreButton.style.display = "none";
   }
 }
 

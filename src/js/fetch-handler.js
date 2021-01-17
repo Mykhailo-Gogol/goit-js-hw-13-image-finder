@@ -6,8 +6,8 @@ function fetchHandler(hits) {
   const cardMarkup = cardTemplate(hits);
 
   if (hits.length > 1) {
-    references.list.textContent = "";
     references.list.insertAdjacentHTML("beforeend", cardMarkup);
+    references.loadMoreButton.style.display = "block";
   } else {
     runInfoNotification();
   }
