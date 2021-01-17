@@ -10,9 +10,18 @@ function onLoadMore(event) {
   const key = "19918904-c3236105177a74f036d1e644e";
   const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${query}&page=${(page += 1)}&per_page=12&key=${key}`;
 
-  if (query) {
-    return fetchImages(url).then(fetchHandler);
+  function scroll() {
+    setTimeout(() => {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 300);
   }
+
+  fetchImages(url).then(fetchHandler);
+
+  scroll();
 }
 
 export default onLoadMore;

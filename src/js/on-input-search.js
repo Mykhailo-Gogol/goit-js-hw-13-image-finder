@@ -3,6 +3,7 @@ import fetchHandler from "./fetch-handler";
 import references from "./references";
 
 function onInputSearch(event) {
+  event.preventDefault();
   const query = event.target.value;
   const key = "19918904-c3236105177a74f036d1e644e";
 
