@@ -50,6 +50,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "handlebars": "^4.7.6"
+    "debounce": "^1.2.0",
+    "handlebars": "^4.7.6",
+    "pnotify": "^5.2.0"
   }
 }

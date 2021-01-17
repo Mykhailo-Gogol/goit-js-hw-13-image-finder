@@ -1,0 +1,15 @@
+import fetchImages from "./fetch-images";
+import fetchHandler from "./fetch-handler";
+
+function onInputSearch(event) {
+  const query = event.target.value;
+  const key = "19918904-c3236105177a74f036d1e644e";
+
+  const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${query}&page=${1}&per_page=12&key=${key}`;
+
+  if (query) {
+    fetchImages(url).then(fetchHandler);
+  }
+}
+
+export default onInputSearch;
