@@ -13,7 +13,14 @@ function onLoadMore() {
   const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${query}&page=${(page += 1)}&per_page=6&key=${key}`;
 
   setTimeout(() => {
-    fetchImages(url).then(fetchHandler);
+    fetchImages(url)
+      .then(fetchHandler)
+      .finally(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight - 1750,
+          behavior: "smooth",
+        });
+      });
 
     references.loadMoreButton.classList.remove("load-animation");
   }, 1000);
