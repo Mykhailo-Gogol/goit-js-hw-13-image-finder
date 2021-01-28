@@ -10,6 +10,7 @@ function onInputSearch(event) {
   const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${query}&page=${1}&per_page=6&key=${key}`;
 
   references.list.textContent = "";
+  document.body.style.backgroundColor = "rgb(60, 60, 60)";
   if (query) {
     fetchImages(url).then(fetchHandler);
   } else {
