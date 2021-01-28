@@ -17,7 +17,7 @@ function onLoadMore() {
       .then(fetchHandler)
       .finally(() => {
         window.scrollTo({
-          top: document.body.scrollHeight - 1900,
+          top: document.body.scrollHeight - 1920,
           behavior: "smooth",
         });
       });
