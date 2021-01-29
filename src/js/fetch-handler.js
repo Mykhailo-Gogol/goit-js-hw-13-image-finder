@@ -5,9 +5,9 @@ import io from "./observer";
 
 function fetchHandler(hits) {
   const cardMarkup = cardTemplate(hits);
-  hits.forEach(({ tags }) => {
-    console.log(tags);
-  });
+  // hits.forEach(({ tags }) => {
+  //   console.log(tags);
+  // });
 
   if (hits.length > 0) {
     references.list.insertAdjacentHTML("beforeend", cardMarkup);

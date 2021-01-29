@@ -1,7 +1,7 @@
 import fetchImages from "./fetch-images";
 import fetchHandler from "./fetch-handler";
 import references from "./references";
-import io from "./observer";
+const throttle = require("lodash.throttle");
 
 let page = 1;
 
@@ -16,14 +16,19 @@ function onLoadMore() {
     fetchImages(url)
       .then(fetchHandler)
       .finally(() => {
-        window.scrollTo({
-          top: document.body.scrollHeight - 1920,
-          behavior: "smooth",
-        });
+        const outputRef = document.querySelector(".gallery");
+        const { y } = outputRef.getBoundingClientRect();
+        console.log(y);
+        throttle(
+          window.scrollTo({
+            top: document.documentElement.clientHeight - y - 150,
+            behavior: "smooth",
+          })
+        );
       });
 
     references.loadMoreButton.classList.remove("load-animation");
-  }, 1000);
+  }, 2000);
 }
 
 export default onLoadMore;
